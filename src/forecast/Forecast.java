@@ -31,19 +31,27 @@ public class Forecast {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       ForecastCore engine = new ForecastCore();
+       ForecastMenu menu = new ForecastMenu();
        /* the plan */
        /* init relevant classes */
+       /* connect to api repository */
        /* check to see if favorites file exists, if it doesn't, create it */
        /* load favorites file */
        /* load json data from favorites */
        /* show favorite forecast information */
        /* main menu */
        /* 1. check weather for city */
-       /* 2. check and save city for favorites */
+       /* 2. check and save city in favorites */
        /* 3. delete cities from favorites */
        /* 4. queue your favorites */
        /* 5. quit */
-       
+       do {
+           menu.printMenu();
+           menu.getResponse();
+           engine.execCommand(menu.getResponse()); /* does nothing on quit */
+
+       } while (/* menu.response() != menu.quit */ true);
     }
     
 }
