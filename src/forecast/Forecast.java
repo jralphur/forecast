@@ -5,25 +5,9 @@
  */
 package forecast;
 
-import org.json.JSONObject;
-//1. At least 3 classes / objects NOT including your "main" class.
-//
-
-
-
-//2. You'll need to read data from a file
-//
-//3. You'll need to write data to a file
-//
-//4. You'll need to accept input from the user. 
-
-/*
- 2 & 3 can be ForecastIO
- Menu Class
-*/
 /**
  *
- * @author Joshua
+ * @author Joshua Reno
  */
 public class Forecast {
 
@@ -31,8 +15,10 @@ public class Forecast {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+       System.out.println("Favorites: ");
        ForecastCore engine = new ForecastCore();
        ForecastMenu menu = new ForecastMenu();
+       int response;
        /* the plan */
        /* init relevant classes */
        /* connect to api repository */
@@ -48,10 +34,10 @@ public class Forecast {
        /* 5. quit */
        do {
            menu.printMenu();
-           menu.getResponse();
-           engine.execCommand(menu.getResponse()); /* does nothing on quit */
-
-       } while (/* menu.response() != menu.quit */ true);
+           response = menu.getMenuResponse();
+           engine.execCommand(response);
+       } while (response != 5); /* quit */
+       
+       System.out.println("Exiting...");
     }
-    
 }

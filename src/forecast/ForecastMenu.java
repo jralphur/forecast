@@ -36,16 +36,19 @@ public class ForecastMenu {
     
     public void printMenu() {
         int i = 1;
-        menu_items.forEach((item) -> {
-            System.out.println(i + item.getDescription());
-        });
+        for (ForecastMenuItem m : menu_items) {
+            System.out.println(i + " " + m.getDescription());
+            ++i;
+        }
     }
-    public int getResponse() {
+    
+    public int getMenuResponse() {
         Scanner user_input = new Scanner(System.in);
-        int ret;
+        int r;
         do {
-            ret = user_input.nextInt();
-        } while (ret < 0 || ret > menu_items.size());
-        return ret;
+            System.out.print("Choice: ");
+            r = user_input.nextInt();
+        } while (r < 0 || r > menu_items.size());
+        return r;
     }
 }
